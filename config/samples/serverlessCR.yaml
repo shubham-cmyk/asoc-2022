@@ -1,0 +1,26 @@
+apiVersion: serverless.devs.serverless.domain/v1
+kind: Serverless
+metadata:
+  name: shubham-02
+spec:
+  edition: "1.0.0"
+  name: hello-world-app
+  access: "default"
+  vars:
+    region: cn-hangzhou
+    service:
+      name: hello-world-service
+      description: 'hello world by serverless devs'
+  services:
+    helloworld:
+      component: fc 
+      actions:
+        pre-deploy:
+          - run: mvn package
+            path: ./ 
+        post-deploy:
+          - component: fc versions publish  
+      props:
+        region:  "${vars.region}"
+        service: "${vars.service}"
+         

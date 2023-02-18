@@ -1,0 +1,14 @@
+apiVersion : serverless.devs.serverless.domain/v1
+kind: Provider
+metadata:
+  name: default-name
+  namespace: default
+spec:
+  provider : alibaba
+  region : cn-hangzhou
+  credentials : 
+    source: Secret
+    secretRef:
+      namespace: default
+      name: serverless-alibaba
+      key: secrets-alibaba

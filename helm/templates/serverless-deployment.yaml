@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: serverless-deployment
+  name: serverless-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: serverless-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: serverless-deployment
+    spec:
+      containers:
+      - image: shubham192001/serverless-controller:0.0.1
+        name: serverless-controller
+        resources: {}
+      serviceAccountName: serverless-serviceaccount 
+status: {}

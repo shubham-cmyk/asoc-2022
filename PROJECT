@@ -1,0 +1,16 @@
+domain: serverless.domain
+layout:
+- go.kubebuilder.io/v3
+projectName: k8s-operator
+repo: serverless.domain/k8s-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: serverless.domain
+  group: serverless.devs
+  kind: Serverless
+  path: serverless.domain/k8s-operator/api/v1
+  version: v1
+version: "3"
